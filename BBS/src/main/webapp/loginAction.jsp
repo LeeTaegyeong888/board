@@ -40,7 +40,7 @@
 			System.out.printf("result 4 ");
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('아이디가 없삼');");
+			script.println("alert('아이디가 없습니다. 다시 확인하여주십시오');");
 			script.println("history.back()");
 			script.println("</script>");
 		}
