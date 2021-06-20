@@ -48,4 +48,24 @@ public class UserDAO {
 		}
 		return -2; // DB 오류
 	}
+	
+	public int join(User user) {
+		String SQL = "INSERT INTO USER VALUES (?, ?, ?, ?, ?)";
+		try {
+			System.out.printf("\n DAO JOIN SUCCESS!!!!!!!!!!\n");
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(3, user.getUserName());
+			pstmt.setString(4, user.getUserGender());
+			pstmt.setString(5, user.getUserEmail());
+			
+			return pstmt.executeUpdate(); // insert 문장 ? 채운값 결과값 리턴 해당 부분이 성공하면 0 이상의 결과값 리턴 
+		} catch (Exception e) {
+			System.out.printf("\n DAO JOIN ERROR!!!!!!!!!!");
+			e.printStackTrace();
+		}
+		return -1; // join 실패 
+	}
+	
 }

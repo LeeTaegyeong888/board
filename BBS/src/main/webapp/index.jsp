@@ -9,6 +9,6 @@
 <title>BBS INDEX!</title>
 </head>
 <body>
-	<script type="text/javascript"> location.href = "login.jsp"</script>
+	<script type="text/javascript"> location.href = "main.jsp"</script>
 </body>
 </html>

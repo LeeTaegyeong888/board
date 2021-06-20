@@ -30,13 +30,23 @@ public class User {
 	}
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
-	}
+	} 
 	public String getUserGender() {
 		return userGender;
 	}
 	public void setUserGender(String userGender) {
 		this.userGender = userGender;
 	}
-	
+	public boolean checkJoinNull() {
+		System.out.printf("checkJoinNull ++ ");
+		System.out.printf("userGender ++ " + userGender);
+		if ((userID == null || userID.equals("")) || (userPassword == null || userPassword.equals("")) ||
+		(userName == null || userName.equals("")) || (userEmail == null || userGender.equals("")) || (userGender == null || userGender.equals(""))) {
+			return false;
+		}
+		
+		return true;
+			
+	}
 	
 }
