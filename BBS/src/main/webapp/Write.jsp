@@ -63,25 +63,26 @@
 	</nav>	
 	<div class = "container">
 		<div class = "row">
+		<form method="post" action="writeAction.jsp">
 			<table class="table table-striped table-hover" style = "text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<th style="background-color: #eeeeee; text-align: center;">번호</th>
-						<th style="background-color: #eeeeee; text-align: center;">제목</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+						<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>1</td>
-						<td>3</td>
-						<td>ddd</td>
-						<td>2020-08-13</td>
+						<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle"  maxlength="50"></td>
+					</tr>
+					<tr>
+						<td><textarea class="form-control" placeholder="글 내용" name="bbsContent"  maxlength="2048" style = "height : 350px;"></textarea></td>
 					</tr>
 				</tbody>
 			</table>
-			<a href="Write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+		</form>
+
+			
 		</div>
 	</div>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
