@@ -21,6 +21,7 @@ public class Bbs {
 		this.bbsTitle = bbsTitle;
 	}
 	public String getUserID() {
+		System.out.printf("\n userID :: " + userID);
 		return userID;
 	}
 	public void setUserID(String userID) {

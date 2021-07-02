@@ -17,15 +17,18 @@
 		String userID = null;
 		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
+			bbs.setUserID(userID); // bbs java 파일에 userID 전달
 		}
 		
 		if (userID == null) {
+			System.out.printf("\n login session ======================no!!!!!!!!!!! ");
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인 하세요');");
 			script.println("location.href = 'login.jsp'");
 			script.println("</script>");
 		} else {
+			System.out.printf("\n login session ======================Yes!!!!!!!!!!! ");
 			if (bbs.getBbsTitle() == null || bbs.getBbsContent() == null){
 				System.out.printf("result NULL STRING! ");
 				PrintWriter script = response.getWriter();
@@ -44,11 +47,12 @@
 					script.println("history.back()");
 					script.println("</script>");
 				} else {
+					System.out.printf("\n bbs.getUserID() :: " + bbs.getUserID());
 					session.setAttribute("userID", bbs.getUserID());
 					System.out.printf("result 2 ");
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href = 'main.jsp'");
+					script.println("location.href = 'bbs.jsp'");
 					script.println("</script>");
 				} 
 			}
