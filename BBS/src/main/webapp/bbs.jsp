@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/> 
+<link rel="stylesheet" type="text/css" href="css/custom.css"/> 
 <title>BBS INDEX!</title>
 <style type="text/css">
 	a, a:hover {
@@ -97,7 +98,7 @@
 				%>
 					<tr>
 						<td><%= list.get(i).getBbsID() %></td>
-						<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>"><%= list.get(i).getBbsTitle() %></a></td>
+						<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>"><%= list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
 						<td><%= list.get(i).getUserID() %></td>
 						<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시 " + list.get(i).getBbsDate().substring(14, 16) + "분"%></td>
 					</tr>

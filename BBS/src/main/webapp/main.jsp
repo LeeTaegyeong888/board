@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/> 
+<link rel="stylesheet" type="text/css" href="css/custom.css"/> 
 <title>BBS INDEX!</title>
 </head>
 <body>
@@ -61,7 +62,41 @@
 			%>
 		</div>
 	</nav>	
-	
+	<div class = "container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>웹 사이트 소개</h1>
+				<p>심심해서 부트스트랩으로 만들어본 웹사이트</p>
+				<a class="btn btn-primary btn-pull" href="bbs.jsp" role="button">게시판 바로가기</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<div>
+				<div data-target="#myCarousel" data-slide-to="0" class="active"></div>
+				<div data-target="#myCarousel" data-slide-to="1" ></div>
+				<div data-target="#myCarousel" data-slide-to="2" ></div>
+			</div>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="images/8.jpg">
+				</div>
+				<div class="item">
+					<img src="images/9.jpg">
+				</div>
+				<div class="item">
+					<img src="images/10.jpg">
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
