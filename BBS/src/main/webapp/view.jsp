@@ -117,7 +117,10 @@
 			<%
 				}
 			%>
-			<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+			
+			<% if (userID != null) { %>
+			<a href="Write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<% } %>
 
 			
 		</div>

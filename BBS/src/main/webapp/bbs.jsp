@@ -159,7 +159,10 @@
 				%>						
 				</ul>
 			</div>
+			
+			<% if (userID != null) { %>
 			<a href="Write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<% } %>
 		</div>
 	</div>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
