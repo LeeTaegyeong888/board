@@ -3,6 +3,9 @@
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="bbs.Bbs"%>
 <%@ page import="bbs.BbsDAO"%>
+<%@ page import="cmt.Cmt"%>
+<%@ page import="cmt.CmtDAO"%>
+<%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,20 +23,28 @@
 		}
 		
 		int bbsID = 0;
+		int cmtID = 0;
+		
 		if (request.getParameter("bbsID") != null) {
 			bbsID = Integer.parseInt(request.getParameter("bbsID"));
 		}
+		if (request.getParameter("cmtID") != null) {
+			cmtID = Integer.parseInt(request.getParameter("cmtID"));
+		}
 		
 		if (bbsID == 0) {
-			System.out.printf("\n login session ======================no!!!!!!!!!!! ");
+			System.out.printf("\n ======================no!!!!!!!!!!! \n");
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('없는 글 입니다.');");
 			script.println("location.href = 'bbs.jsp'");
 			script.println("</script>");
 		}
-		
+		System.out.printf("\n CMT ==> setBbsID  ::  " + bbsID + "\n");
 		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		Cmt cmt = new CmtDAO().getCmt(bbsID);
+		CmtDAO cmtDAO = new CmtDAO();
+		Cmt cmt2 = new Cmt();
 	%>
 	<nav class = "navbar navbar-default">
 		<div class = "navbar-header">
@@ -82,7 +93,7 @@
 	</nav>	
 	<div class = "container">
 		<div class = "row">
-			<table class="table table-striped table-hover" style = "text-align: center; border: 1px solid #dddddd">
+			<table class="table table-striped" style = "border: 1px solid #dddddd">
 				<thead>
 					<tr>
 						<th colspan="3" style="background-color: #eeeeee; text-align: center;">게시판 글보기</th>
@@ -90,23 +101,53 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width:20%;">글 제목</td>
+						<td style="text-align: center; width:20%;">글 제목</td>
 						<td colspan="2"><%=bbs.getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
 					</tr>
 					<tr>
-						<td>작성자</td>
+						<td style="text-align: center;">작성자</td>
 						<td colspan="2"><%=bbs.getUserID() %></td>
 					</tr>
 					<tr>
-						<td>작성일자</td>
+						<td style="text-align: center;">작성일자</td>
 						<td colspan="2"><%= bbs.getBbsDate().substring(0, 11) + bbs.getBbsDate().substring(11, 13) + "시 " + bbs.getBbsDate().substring(14, 16) + "분"%></td>
 					</tr>
 					<tr>
-						<td>내용</td>
-						<td colspan="2"  style="min-height:200px; text-align:left;"><%= bbs.getBbsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></td>
+						<td colspan="2"  style="min-height:200px; text-align:left; height : 500px;"><%= bbs.getBbsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></td>
 					</tr>
 				</tbody>
 			</table>
+			<form method="post" action="cmtAction.jsp?bbsID=<%= bbsID%>">
+				<table class="table table-striped" style = "border: 1px solid #dddddd">
+					<thead>
+						<tr>
+							<th colspan="4" style="background-color: #eeeeee; text-align: center;">댓글</th>
+						</tr>
+					</thead>
+					<tbody>
+					<%
+						ArrayList<Cmt> list = cmtDAO.getList(bbsID);
+						System.out.printf("\n LIST LENGTH? ::  " + list.size());
+						for(int i = 0; i<list.size(); i++) {
+							if (list.get(i).getBbsID() == bbs.getBbsID()) {
+					%>
+						<tr>
+							<td style="text-align: center; width:5%;"><%= (i+1) %></td>
+							<td style="text-align: center; width:55%;"><%= list.get(i).getCmtContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
+							<td style="text-align: center; width:20%;"><%= list.get(i).getUserID() %></td>
+							<td style="text-align: center; width:20%;"><%= list.get(i).getCmtDate().substring(0, 11) + list.get(i).getCmtDate().substring(11, 13) + "시 " + list.get(i).getCmtDate().substring(14, 16) + "분"%></td>
+						</tr>
+					<%
+							}
+						}
+					%>
+						<tr>
+							<td colspan="4"><textarea class="form-control" placeholder="댓글을 입력하세요" name="cmtContent"  maxlength="2048" style = "height : 200px;"></textarea></td>
+						</tr>
+					</tbody>
+				</table>
+				<input type="submit" class="btn btn-primary pull-right" value="댓글 쓰기">
+			</form>
 			<a href ="bbs.jsp" class="btn btn-primary">목록</a>
 			<%
 				if (userID != null && userID.equals(bbs.getUserID())) {
