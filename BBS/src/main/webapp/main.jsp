@@ -17,19 +17,25 @@
 			userID = (String) session.getAttribute("userID");
 		}
 	%>
-	<nav class = "navbar navbar-default">
-		<div class = "navbar-header">
-			<button type = "button" class ="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class = "navbar-brand"  href="main.jsp">JSP 웹사이트</a>
+			<a class="navbar-brand font"  href="main.jsp">HeeJin No.4</a>
 		</div>
 		<div class="collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class = "active"><a href="main.jsp">메인</a>
 				<li><a href="bbs.jsp">게시판</a>
+				<li>
+					<a href="http://sports.ibk.co.kr/m/volleyball/main/" target='_blank'>알토스 배구단 바로가기</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/geurujam_/" target='_blank'>김희진 인스타그램</a>
+				</li>
 			</ul>
 			<%
 				if(userID == null) {		
@@ -61,42 +67,47 @@
 				}		
 			%>
 		</div>
-	</nav>	
-	<div class = "container">
+	</nav>
+	<div>
+	
+	</div>	
+	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h1>웹 사이트 소개</h1>
-				<p>심심해서 부트스트랩으로 만들어본 웹사이트</p>
-				<a class="btn btn-primary btn-pull" href="bbs.jsp" role="button">게시판 바로가기</a>
+				<h1>김희진</h1>
+				<p>1991년 04월 29일</p>
+				<p>포지션: 센터 | 라이트</p>
+				<p>화성 IBK 기업은행 알토스 소속</p>
+			</div>
+			<div class="container">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<div>
+						<div data-target="#myCarousel" data-slide-to="0" class="active"></div>
+						<div data-target="#myCarousel" data-slide-to="1" ></div>
+						<div data-target="#myCarousel" data-slide-to="2" ></div>
+					</div>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="images/background_1.jpg">
+						</div>
+						<div class="item">
+							<img src="images/background_2.jpg">
+						</div>
+						<div class="item">
+							<img src="images/background_3.jpg">
+						</div>
+					</div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<div>
-				<div data-target="#myCarousel" data-slide-to="0" class="active"></div>
-				<div data-target="#myCarousel" data-slide-to="1" ></div>
-				<div data-target="#myCarousel" data-slide-to="2" ></div>
-			</div>
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="images/8.jpg">
-				</div>
-				<div class="item">
-					<img src="images/9.jpg">
-				</div>
-				<div class="item">
-					<img src="images/10.jpg">
-				</div>
-			</div>
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		</div>
-	</div>
+
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
