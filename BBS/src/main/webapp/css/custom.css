@@ -3,9 +3,11 @@
 * {
 	font-family: 'Song Myung', serif;
 }
-
 h1 {
 	font-family: 'Song Myung', serif;
+}
+.jumbotron {
+	background-color: transparent;
 }
 .carousel-inner> .item> img {
 	width : 100%;

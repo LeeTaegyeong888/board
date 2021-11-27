@@ -23,6 +23,8 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand font"  href="main.jsp">HeeJin No.4</a>
 		</div>
@@ -85,6 +87,7 @@
 						<div data-target="#myCarousel" data-slide-to="0" class="active"></div>
 						<div data-target="#myCarousel" data-slide-to="1" ></div>
 						<div data-target="#myCarousel" data-slide-to="2" ></div>
+						<div data-target="#myCarousel" data-slide-to="3" ></div>
 					</div>
 					<div class="carousel-inner">
 						<div class="item active">
@@ -95,6 +98,9 @@
 						</div>
 						<div class="item">
 							<img src="images/background_3.jpg">
+						</div>
+						<div class="item">
+							<img src="images/background_4.jpg">
 						</div>
 					</div>
 					<a class="left carousel-control" href="#myCarousel" data-slide="prev">

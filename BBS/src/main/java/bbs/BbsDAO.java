@@ -67,10 +67,10 @@ public class BbsDAO {
 			PreparedStatement pstmt = conn.prepareStatement(SQL); //실행 준비단계
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bbsTitle);
-			pstmt.setString(3, userID);
-			pstmt.setString(4, getDate());
-			pstmt.setString(5, bbsContent);
-			pstmt.setInt(6, 1);
+			pstmt.setString(3, getDate());
+			pstmt.setString(4, bbsContent);
+			pstmt.setInt(5, 1);
+			pstmt.setString(6, userID);
 			return pstmt.executeUpdate();// 실제로 실행했을때 나오는 결과 가져옴
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -93,10 +93,10 @@ public class BbsDAO {
 				
 				bbs.setBbsID(rs.getInt(1));
 				bbs.setBbsTitle(rs.getString(2));
-				bbs.setUserID(rs.getString(3));
-				bbs.setBbsDate(rs.getString(4));
-				bbs.setBbsContent(rs.getString(5));
-				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsDate(rs.getString(3));
+				bbs.setBbsContent(rs.getString(4));
+				bbs.setBbsAvailable(rs.getInt(5));
+				bbs.setUserID(rs.getString(6));
 				list.add(bbs);
 			}
 		} catch(Exception e) {
@@ -162,10 +162,10 @@ public class BbsDAO {
 				
 				bbs.setBbsID(rs.getInt(1));
 				bbs.setBbsTitle(rs.getString(2));
-				bbs.setUserID(rs.getString(3));
-				bbs.setBbsDate(rs.getString(4));
-				bbs.setBbsContent(rs.getString(5));
-				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsDate(rs.getString(3));
+				bbs.setBbsContent(rs.getString(4));
+				bbs.setBbsAvailable(rs.getInt(5));
+				bbs.setUserID(rs.getString(6));
 				
 				return bbs;
 			}

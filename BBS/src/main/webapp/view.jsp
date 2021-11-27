@@ -52,13 +52,21 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
-			<a class = "navbar-brand"  href="main.jsp">JSP 웹사이트</a>
+			<a class = "navbar-brand"  href="main.jsp">HeeJin No.4</a>
 		</div>
 		<div class="collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a>
-				<li class = "active"><a href="bbs.jsp">게시판</a> 
+				<li class = "active"><a href="bbs.jsp">게시판</a>
+				<li>
+					<a href="http://sports.ibk.co.kr/m/volleyball/main/" target='_blank'>알토스 배구단 바로가기</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/geurujam_/" target='_blank'>김희진 인스타그램</a>
+				</li>
 			</ul>
 			<%
 				if(userID == null) {		
